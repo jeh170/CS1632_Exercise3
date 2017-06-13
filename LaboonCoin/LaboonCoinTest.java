@@ -86,23 +86,23 @@ public class LaboonCoinTest {
     @Test
     public void testCreateBlock2() {
         LaboonCoin l = new LaboonCoin();
-        String data = "boo";
-        int prevHash = 0x00000000;
-        int nonce = 0x000010bb;
-        int hash = 0x000b43be;
+        String data = "mars";
+        int prevHash = 0x00086d30;
+        int nonce = 0x00004dfa;
+        int hash = 0x0008ff9f;
 
-        assertEquals("boo|00000000|000010bb|000b43be", l.createBlock(data, prevHash, nonce, hash));
+        assertEquals("mars|00086d30|00004dfa|0008ff9f", l.createBlock(data, prevHash, nonce, hash));
     }
 
     @Test
     public void testCreateBlock3() {
         LaboonCoin l = new LaboonCoin();
-        String data = "boo";
-        int prevHash = 0x00000000;
-        int nonce = 0x000010bb;
-        int hash = 0x000b43be;
+        String data = "quock";
+        int prevHash = 0x000f593c;
+        int nonce = 0x00000229;
+        int hash = 0x000064f6;
 
-        assertEquals("boo|00000000|000010bb|000b43be", l.createBlock(data, prevHash, nonce, hash));
+        assertEquals("quock|000f593c|00000229|000064f6", l.createBlock(data, prevHash, nonce, hash));
     }
 
     @Test
