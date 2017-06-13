@@ -23,7 +23,7 @@ public class LaboonCoin {
      */
     
     public String createBlock(String data, int prevHash, int nonce, int hash) {
-	return data + "|" + String.format("%08x", prevHash) + "|" + String.format("%08x", nonce) + "|" + String.format("%08x", hash)
+	return data + "|" + String.format("%08x", prevHash) + "|" + String.format("%08x", nonce) + "|" + String.format("%08x", hash);
     }
 
     /**
@@ -69,11 +69,14 @@ public class LaboonCoin {
      */
     
     public int hash(String data) {
+        if (data == null)
+            throw new IllegalArgumentException("The hash cannot be null");
         char[] charSequence = data.toCharArray();
 
         int n = 10000000;
         for (char character : charSequence)
         {
+            System.out.println((int)character);
             n = n * character + character;
         }
 	// TODO
@@ -96,7 +99,7 @@ public class LaboonCoin {
      */
     
     public boolean validHash(int difficulty, int hash) {
-        char[] hexits = String.format("%08x", hash),toCharArray();
+        char[] hexits = String.format("%08x", hash).toCharArray();
 
         int numZeros = 0;
         for(char curHexit : hexits)
