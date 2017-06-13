@@ -72,5 +72,69 @@ public class LaboonCoinTest {
     assertTrue(l.validHash(3, hash));
     }
 
-    
+    @Test
+    public void testCreateBlock1() {
+        LaboonCoin l = new LaboonCoin();
+        String data = "boo";
+        int prevHash = 0x00000000;
+        int nonce = 0x000010bb;
+        int hash = 0x000b43be;
+
+        assertEquals("boo|00000000|000010bb|000b43be", l.createBlock(data, prevHash, nonce, hash));
+    }
+
+    @Test
+    public void testCreateBlock2() {
+        LaboonCoin l = new LaboonCoin();
+        String data = "boo";
+        int prevHash = 0x00000000;
+        int nonce = 0x000010bb;
+        int hash = 0x000b43be;
+
+        assertEquals("boo|00000000|000010bb|000b43be", l.createBlock(data, prevHash, nonce, hash));
+    }
+
+    @Test
+    public void testCreateBlock3() {
+        LaboonCoin l = new LaboonCoin();
+        String data = "boo";
+        int prevHash = 0x00000000;
+        int nonce = 0x000010bb;
+        int hash = 0x000b43be;
+
+        assertEquals("boo|00000000|000010bb|000b43be", l.createBlock(data, prevHash, nonce, hash));
+    }
+
+    @Test
+    public void testGetEmptyBlockChain() {
+        LaboonCoin l = new LaboonCoin();
+        
+        assertEquals("", l.getBlockChain());
+    }
+
+    @Test
+    public void testGetSingleBlockChain() {
+        LaboonCoin l = new LaboonCoin();
+        
+        l.blockchain.add("boo|00000000|000010bb|000b43be");
+
+        assertEquals("boo|00000000|000010bb|000b43be\n", l.getBlockChain());
+    }
+
+    @Test
+    public void testGetMultipleBlockChain() {
+        LaboonCoin l = new LaboonCoin();
+        
+        l.blockchain.add("boo|00000000|000010bb|000b43be");
+        l.blockchain.add("boo|000b43be|000005a1|00075500");
+        l.blockchain.add("boo|00075500|000016da|000f593c");
+        l.blockchain.add("quock|000f593c|00000229|000064f6");
+
+        String expected = "boo|00000000|000010bb|000b43be\n"
+        + "boo|000b43be|000005a1|00075500\n"
+        + "boo|00075500|000016da|000f593c\n"
+        + "quock|000f593c|00000229|000064f6\n";
+
+        assertEquals(expected, l.getBlockChain());
+    }
 }
