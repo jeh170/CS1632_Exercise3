@@ -76,8 +76,9 @@ public class LaboonCoin {
         int n = 10000000;
         for (char character : charSequence)
         {
-            System.out.println((int)character);
+           // System.out.println((int)character);
             n = n * character + character;
+           // System.out.println(n);
         }
 	// TODO
 	return n;
